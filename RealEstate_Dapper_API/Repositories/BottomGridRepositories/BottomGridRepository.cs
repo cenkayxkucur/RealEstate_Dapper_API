@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using RealEstate_Dapper_API.Dtos.BottomGridDtos;
 using RealEstate_Dapper_API.Dtos.ProductDtos;
+using RealEstate_Dapper_API.Dtos.ServiceDtos;
 using RealEstate_Dapper_API.Models.DapperContext;
 
 namespace RealEstate_Dapper_API.Repositories.BottomGridRepositories
@@ -14,14 +15,28 @@ namespace RealEstate_Dapper_API.Repositories.BottomGridRepositories
             _context = context;
         }
 
-        public void CreateBottomGrid(CreateBottomGridDto createbottomgridDto)
+        public async void CreateBottomGrid(CreateBottomGridDto createbottomGridDto)
         {
-            throw new NotImplementedException();
+            string query = "insert into BottomGrid (Icon,Title,Description) values (@icon,@title,@description)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@icon", createbottomGridDto.Icon);
+            parameters.Add("@title", createbottomGridDto.Title);
+            parameters.Add("@description", createbottomGridDto.Description);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
-        public void DeleteBottomGrid(int id)
+        public async void DeleteBottomGrid(int id)
         {
-            throw new NotImplementedException();
+            string query = "Delete From BottomGrid Where BottomGridID=@bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@bottomGridID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
         public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
@@ -34,14 +49,30 @@ namespace RealEstate_Dapper_API.Repositories.BottomGridRepositories
             }
         }
 
-        public Task<GetBottomGridDto> GetBottomGrid(int id)
+        public async Task<GetBottomGridDto> GetBottomGrid(int id)
         {
-            throw new NotImplementedException();
+            string query = "Select * From BottomGrid Where BottomGridID=@bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@bottomGridID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<GetBottomGridDto>(query, parameters);
+                return values;
+            }
         }
 
-        public void UpdateBottomGrid(UpdateBottomGridDto updatebottomgridDto)
+        public async void UpdateBottomGrid(UpdateBottomGridDto updatebottomGridDto)
         {
-            throw new NotImplementedException();
+            string query = "Update BottomGrid Set Icon=@icon,Title=@title,Description=@description where BottomGridID=@bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@icon", updatebottomGridDto.Icon);
+            parameters.Add("@title", updatebottomGridDto.Title);
+            parameters.Add("@description", updatebottomGridDto.Description);
+            parameters.Add("@bottomGridID", updatebottomGridDto.BottomGridID);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
     }
 }
