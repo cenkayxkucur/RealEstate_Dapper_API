@@ -27,5 +27,11 @@ namespace RealEstate_Dapper_API.Controllers
             return Ok(values);
 
         }
+        [HttpGet("ProductDealOfTheDayStatusChangeToTrue/{id}")]
+        public async Task<IActionResult> ProductDealOfTheDayStatusChangeToTrue(int id)
+        {
+            _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
+            return Ok("İlan Durumu Güncellendi");
+        }
     }
 }

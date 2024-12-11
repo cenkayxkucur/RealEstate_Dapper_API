@@ -1,6 +1,6 @@
 ﻿namespace RealEstate_Dapper_API.Dtos.PopularLocationDtos
 {
-    public class ResultPopularLocationDto
+    public class UpdatePopularLocationDto
     {
         public int PopularLocationID { get; set; }
 

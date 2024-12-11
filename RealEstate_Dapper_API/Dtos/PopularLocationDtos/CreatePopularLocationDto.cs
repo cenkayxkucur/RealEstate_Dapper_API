@@ -1,8 +1,7 @@
 ﻿namespace RealEstate_Dapper_API.Dtos.PopularLocationDtos
 {
-    public class ResultPopularLocationDto
+    public class CreatePopularLocationDto
     {
-        public int PopularLocationID { get; set; }
 
         public string CityName { get; set; }
 
