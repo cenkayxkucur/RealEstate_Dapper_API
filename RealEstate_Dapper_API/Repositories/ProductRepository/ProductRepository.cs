@@ -33,25 +33,34 @@ namespace RealEstate_Dapper_API.Repositories.ProductRepository
             }
         }
 
+        public async void ProductDealOfTheDayStatusChangeToTrue(int id)
+        {
+            string query = "Update Product Set DealOfTheDay=1 where ProductID=@productID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@productID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
+        }
         public async void ProductDealOfTheDayStatusChangeToFalse(int id)
         {
             string query = "Update Product Set DealOfTheDay=0 where ProductID=@productID";
             var parameters = new DynamicParameters();
-            parameters.Add("@prouctID", id);
+            parameters.Add("@productID", id);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
             }
         }
 
-        public async void ProductDealOfTheDayStatusChangeToTrue(int id)
+        public async Task<List<ResultLast5ProductWithCategoryDto>> GetLast5ProductAsync()
         {
-            string query = "Update Product Set DealOfTheDay=1 where ProductID=@ProductID";
-            var parameters = new DynamicParameters();
-            parameters.Add("@prouctID", id);
+            string query = "Select Top(5) ProductID,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate From Product Inner Join Category On Product.ProductCategory=Category.CategoryID Where Type='Kiralık' Order By ProductID Desc";
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query,parameters);
+                var values = await connection.QueryAsync<ResultLast5ProductWithCategoryDto>(query);
+                return values.ToList();
             }
         }
     }
