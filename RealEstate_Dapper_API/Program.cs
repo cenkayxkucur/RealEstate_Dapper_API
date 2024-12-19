@@ -11,6 +11,8 @@ using RealEstate_Dapper_API.Repositories.WhoWeAreRepository;
 using RealEstate_Dapper_API.Repositories.ContactRepositories;
 using RealEstate_Dapper_API.Repositories.ToDoListRepositories;
 using RealEstate_Dapper_API.Hubs;
+using RealEstate_Dapper_API.Repositories.EstateAgentRepositories.DashboardRepositories.StatisticRepositories;
+using RealEstate_Dapper_API.Repositories.EstateAgentRepositories.DashboardRepositories.ChartRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,8 @@ builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IStatisticsRepository , StatisticsRepository>();
 builder.Services.AddTransient<IContactRepository , ContactRepository>();
 builder.Services.AddTransient<IToDoListRepository, ToDoListRepository>();
+builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
+builder.Services.AddTransient<IChartRepository, ChartRepository>();
 builder.Services.AddCors(opt =>
 { 
     opt.AddPolicy("CorsPolicy",builder => 
