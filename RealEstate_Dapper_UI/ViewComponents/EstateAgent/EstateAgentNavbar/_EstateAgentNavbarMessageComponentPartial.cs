@@ -6,6 +6,7 @@ namespace RealEstate_Dapper_UI.ViewComponents.EstateAgent.EstateAgentNavbar
     {
         public IViewComponentResult Invoke()
         {
+
             return View();
         }
     }
