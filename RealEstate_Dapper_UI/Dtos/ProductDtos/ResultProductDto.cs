@@ -1,4 +1,6 @@
-﻿namespace RealEstate_Dapper_UI.Dtos.ProductDtos
+﻿using Newtonsoft.Json;
+
+namespace RealEstate_Dapper_UI.Dtos.ProductDtos
 {
     public class ResultProductDto
     {
