@@ -19,4 +19,8 @@
     <Folder Include="wwwroot\cityimages\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Dtos\AppUserDtos\GetAppUserByProductIdDto.cs" />
+  </ItemGroup>
+
 </Project>

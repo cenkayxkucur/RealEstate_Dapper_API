@@ -15,6 +15,8 @@ using RealEstate_Dapper_API.Repositories.EstateAgentRepositories.DashboardReposi
 using RealEstate_Dapper_API.Repositories.EstateAgentRepositories.DashboardRepositories.ChartRepositories;
 using RealEstate_Dapper_API.Repositories.EstateAgentRepositories.DashboardRepositories.LastProductsRepositories;
 using RealEstate_Dapper_API.Repositories.MessageRepositories;
+using RealEstate_Dapper_API.Repositories.ProductImageRepositories;
+using RealEstate_Dapper_API.Repositories.AppUserRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +37,8 @@ builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
 builder.Services.AddTransient<IChartRepository, ChartRepository>();
 builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductsRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
+builder.Services.AddTransient<IProductImageRepository, ProductImageRepository >();
+builder.Services.AddTransient<IAppUserRepository, AppUserRepository >();
 
 builder.Services.AddCors(opt =>
 { 

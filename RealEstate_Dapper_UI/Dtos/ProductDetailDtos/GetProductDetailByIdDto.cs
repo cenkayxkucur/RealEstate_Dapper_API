@@ -14,5 +14,7 @@
             public string videoUrl { get; set; }
             public int productId { get; set; }
 
+            public int roomCount { get; set; }
+            public DateTime AdvertisementDate { get; set; }
     }
 }
