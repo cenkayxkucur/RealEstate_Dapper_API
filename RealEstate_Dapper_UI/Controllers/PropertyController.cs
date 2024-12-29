@@ -45,7 +45,7 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.description = values.description;
             ViewBag.productId = values.productID;
             ViewBag.advertisementDate = values.advertisementDate;
-
+            
             var client1 = _httpClientFactory.CreateClient();
             var responseMessage1 = await client1.GetAsync("http://localhost:5096/api/ProductDetails/GetProductDetailByProductId?id=" + id);
             var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
@@ -58,6 +58,8 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.roomCount = values1.roomCount;
             ViewBag.garageSize = values1.garageSize;
             ViewBag.buildYear = values1.buildYear;
+            ViewBag.location = values1.location;
+            ViewBag.videoUrl = values1.videoUrl;
             DateTime date1 = DateTime.Now;
             DateTime date2 = values.advertisementDate;
             TimeSpan timeSpan = date1 - date2;  
