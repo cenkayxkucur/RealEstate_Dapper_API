@@ -160,6 +160,16 @@ namespace RealEstate_Dapper_API.Repositories.ProductRepository
                 return values.ToList();
             }
         }
+
+        public async Task<List<ResultLast3ProductWithCategoryDto>> GetLast3ProductAsync()
+        {
+            string query = "Select Top(3) ProductID,CoverImage,Description,Title,Price,City,District,ProductCategory,CategoryName,AdvertisementDate From Product Inner Join Category On Product.ProductCategory=Category.CategoryID Order By ProductID Desc";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultLast3ProductWithCategoryDto>(query);
+                return values.ToList();
+            }
+        }
     }
 }
  
