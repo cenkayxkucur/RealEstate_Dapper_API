@@ -13,17 +13,17 @@ namespace RealEstate_Dapper_API.Repositories.ContactRepositories
             _context = context;
         }
 
-        public void CreateContact(CreateContactDto createContactDto)
+        public Task CreateContact(CreateContactDto createContactDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteContact(int id)
+        public Task DeleteContact(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<ResultContactDto>> GetAllContactAsync()
+        public async Task<List<ResultContactDto>> GetAllContact()
         {
             string query = "Select * From Contact";
             using (var connection = _context.CreateConnection())
@@ -48,7 +48,7 @@ namespace RealEstate_Dapper_API.Repositories.ContactRepositories
             }
         }
 
-        public void UpdateContact(UpdateContactDto updateContactDto)
+        public Task UpdateContact(UpdateContactDto updateContactDto)
         {
             throw new NotImplementedException();
         }
