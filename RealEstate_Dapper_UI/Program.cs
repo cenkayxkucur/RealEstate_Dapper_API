@@ -28,7 +28,7 @@ JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 
 var app = builder.Build();
 
-builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettingsKey"));
+
 
 
 // Configure the HTTP request pipeline.

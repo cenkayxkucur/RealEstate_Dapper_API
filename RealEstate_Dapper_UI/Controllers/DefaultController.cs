@@ -9,18 +9,18 @@ namespace RealEstate_Dapper_UI.Controllers
     public class DefaultController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly ApiSettings _apiSettings;
-        public DefaultController(IHttpClientFactory httpClientFactory, IOptions<ApiSettings> apiSettings)
+   
+        public DefaultController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
-            _apiSettings = apiSettings.Value;
+           
         }
-        //http://localhost:5096/api/Categories
+        
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri(_apiSettings.BaseUrl);
-            var responseMessage = await client.GetAsync("Categories");
+      
+            var responseMessage = await client.GetAsync("http://localhost:5096/api/Categories");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

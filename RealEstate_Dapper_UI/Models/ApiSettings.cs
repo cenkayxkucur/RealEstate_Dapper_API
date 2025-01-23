@@ -1,6 +1,6 @@
 ﻿namespace RealEstate_Dapper_UI.Models
 {
-    public class ApiSettings
+    public class ApiSettingsKey
     {
         public string BaseUrl { get; set; }
     }
