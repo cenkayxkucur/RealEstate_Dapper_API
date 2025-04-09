@@ -4,16 +4,19 @@ Projenin Amacı:
 Gayrimenkul sektöründeki veri yönetimini kolaylaştırmak.
 Kullanıcılar için güvenilir ve hızlı bir API altyapısı sağlamak.
 Dapper ORM kullanılarak veritabanı işlemlerinin daha hızlı ve optimize şekilde gerçekleştirilmesi.
+
 Öne Çıkan Özellikler:
 Performans: Dapper ORM ile hızlı ve verimli veritabanı erişimi.
 Modüler Mimari: Kodun kolayca genişletilebilir ve sürdürülebilir olması için katmanlı yapı.
 RESTful API: Standartlara uygun, kolay entegre edilebilir API uç noktaları.
 Ölçeklenebilirlik: Artan kullanıcı taleplerine yanıt verebilecek şekilde tasarlanmıştır.
 Front-End ve Back-End Uyumu: API'nin modern front-end uygulamalarıyla uyumlu çalışabilmesi.
+
 Kullanılan Yapı ve Mimari:
 Katmanlı Mimari: Proje, iş mantığı (business logic), veri erişim (data access) ve API katmanları gibi farklı katmanlar halinde organize edilmiştir.
 Dapper ORM: Veritabanı işlemlerinin hızlı ve hafif bir şekilde gerçekleştirilmesi için.
 Entity Framework Alternatifi: Performans odaklı bir yaklaşım sunar.
+
 Kullanılan Teknolojiler:
 Back-End:
 Dil: C#
